@@ -20,9 +20,10 @@ require('lazy').setup({
   -- Use `opts = {}` to force a plugin to be loaded.
   --
 
-
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
+
+  require 'custom/plugins/catppuccin',
 
   require 'kickstart/plugins/gitsigns',
 
@@ -35,8 +36,6 @@ require('lazy').setup({
   require 'kickstart/plugins/conform',
 
   require 'kickstart/plugins/cmp',
-
-  require 'kickstart/plugins/tokyonight',
 
   require 'kickstart/plugins/todo-comments',
 
@@ -86,5 +85,14 @@ require('lazy').setup({
     },
   },
 })
+
+-- catppuccin
+require('catppuccin').setup {
+  flavour = 'auto', -- latte, frappe, macchiato, mocha
+  transparent_background = true, -- disables setting the background color.
+}
+
+-- setup must be called before loading
+vim.cmd.colorscheme 'catppuccin'
 
 -- vim: ts=2 sts=2 sw=2 et
